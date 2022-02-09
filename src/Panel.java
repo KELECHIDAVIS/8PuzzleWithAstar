@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -10,7 +11,16 @@ public class Panel extends GamePanel{
 
     public Panel()
     {
-
+        int answer = JOptionPane.showConfirmDialog(null, "Input a starting position?","Starting Prompt" , JOptionPane.YES_NO_CANCEL_OPTION);
+        if(answer ==0)
+        {
+            String input = JOptionPane.showInputDialog("Input board as a 1 dimensional string Ex: 123456780"); // has to be 9 letters
+            for(int i =0; i<input.length(); i++)
+            {
+                int row =i/3; int col =i%3;
+                board[row][col  ] = Integer.parseInt(""+input.charAt(i));
+            }
+        }
         this.start();
 
     }
