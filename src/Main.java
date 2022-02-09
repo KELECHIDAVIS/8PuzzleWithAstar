@@ -1,17 +1,35 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class Main
 {
-    public static int[][] startArr = {
-            {2,6,3},
-            {1,0,8},
-            {4,5,7},};
-    public static int[][] gArr = {
-            {1,2,3},
-            {4,5,6},
-            {7,8,0},};
-    public static Puzzle start =new Puzzle(startArr), goal = new Puzzle(gArr);
+    static class Test implements Comparable<Test >
+    {
+        int h ;
+        public Test(int h )
+        {
+            this.h =h;
+        }
+        public String toString()
+        {
+            return this.h+  "";
+        }
+
+
+        @Override
+        public int compareTo(Test o) {
+            return this.h - o.h;
+        }
+    }
+
     public static void main(String[] args)
     {
-        start.print();
+
+
+        Panel panel = new Panel() ;
+        Frame frame = new Frame("8 Puzzle", 610,640,panel);
+
 
 
     }
